@@ -1,0 +1,12 @@
+body {
+    background-color: gray;
+    margin-left: 30px;
+}
+button {
+    margin-left: 90px;
+    border-radius: 5px;
+    padding: 3px 12px;
+}
+#weight-guide {
+    margin-left: 70px;
+} 

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Event</title>
+    <style>
+        li {
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img id="photoshop" src="images/01.webp" width="200px" height="130px"></li>
+            <li><img id="coffee"    src="images/02.webp" width="200px" height="130px"></li>
+            <li><img id="magazine" src="images/03.webp" width="200px" height="130px"></li>
+            <li><img id="chair" src="images/04.webp" width="200px" height="130px"></li>
+            <li><img id="clock" src="images/05.webp" width="200px" height="130px"></li>
+            <li><a style="color: aliceblue;" href="https://www.google.com/" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+
+<script>
+    // First Method
+   /* document.getElementById('coffee').onclick = function() {
+        alert("coffee clicked");
+    } */
+
+   // Second Method 
+   /* document.getElementById('coffee').addEventListener('click', function() {
+    alert("coffee clicked again");
+   }); */
+
+   document.getElementById('images').addEventListener('click', function(e) {
+    console.log("clicked inside the ul");
+   }, false);
+
+   document.getElementById('coffee').addEventListener('click', function(e) {
+    console.log("coffee clicked");
+    e.stopPropagation();
+   }, false);
+
+   document.getElementById('google').addEventListener('click', function(e) {
+    console.log("google clicked");
+    e.preventDefault();
+    e.stopPropagation();
+   }, false);
+
+   document.querySelector('#images').addEventListener('click', function(e) {
+    console.log(e.target.parentNode);
+    let removeIt = e.target.parentNode
+    removeIt.remove();
+    
+   });
+</script>
+</html>
